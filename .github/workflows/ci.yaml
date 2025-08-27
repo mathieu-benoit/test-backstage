@@ -21,6 +21,6 @@ jobs:
               -e APP_CONFIG_auth_providers_guest_dangerouslyAllowOutsideDevelopment='true' \
               -p 7007:7007 \
               backstage:local
-          sleep 5
+          sleep 10
           curl localhost:7007
           
