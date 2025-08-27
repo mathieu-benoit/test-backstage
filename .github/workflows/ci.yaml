@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v5
-      - name: make compose-test
+      - name: docker build and run
         run: |
           docker image build -t backstage:local .
           docker run -d \
