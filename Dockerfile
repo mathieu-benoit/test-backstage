@@ -46,13 +46,13 @@ RUN mkdir packages/backend/dist/skeleton packages/backend/dist/bundle \
     && tar xzf packages/backend/dist/bundle.tar.gz -C packages/backend/dist/bundle
 
 # Stage 3 - Build the actual backend image and install production dependencies
-FROM node:22-alpine
+FROM alpine:3.22.0
 
 # Set Python interpreter for `node-gyp` to use
 ENV PYTHON=/usr/bin/python3
 
 # Install isolate-vm dependencies, these are needed by the @backstage/plugin-scaffolder-backend.
-RUN apk add --no-cache g++ make python3 && \
+RUN apk add --no-cache g++ make nodejs python3 yarn && \
     rm -rf /var/lib/apk/lists/*
 
 # Install sqlite3 dependencies. You can skip this if you don't use sqlite3 in the image,
@@ -61,6 +61,7 @@ RUN apk add --no-cache sqlite-dev && \
     rm -rf /var/lib/apk/lists/*
 
 # From here on we use the least-privileged `node` user to run the backend.
+RUN addgroup -S node && adduser -S node -G node
 USER node
 
 # This should create the app dir as `node`.
