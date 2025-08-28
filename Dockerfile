@@ -20,18 +20,12 @@ FROM node:22-alpine AS build
 ENV PYTHON=/usr/bin/python3
 
 # Install isolate-vm dependencies, these are needed by the @backstage/plugin-scaffolder-backend.
-RUN --mount=type=cache,target=/var/cache/apk,sharing=locked \
-    --mount=type=cache,target=/var/lib/apk,sharing=locked \
-    apk update && \
-    apk add python3 g++ make && \
+RUN apk add --no-cache g++ make python3 && \
     rm -rf /var/lib/apk/lists/*
 
 # Install sqlite3 dependencies. You can skip this if you don't use sqlite3 in the image,
 # in which case you should also move better-sqlite3 to "devDependencies" in package.json.
-RUN --mount=type=cache,target=/var/cache/apk,sharing=locked \
-    --mount=type=cache,target=/var/lib/apk,sharing=locked \
-    apk update && \
-    apk add sqlite-dev && \
+RUN apk add --no-cache sqlite-dev && \
     rm -rf /var/lib/apk/lists/*
 
 USER node
@@ -58,18 +52,12 @@ FROM node:22-alpine
 ENV PYTHON=/usr/bin/python3
 
 # Install isolate-vm dependencies, these are needed by the @backstage/plugin-scaffolder-backend.
-RUN --mount=type=cache,target=/var/cache/apk,sharing=locked \
-    --mount=type=cache,target=/var/lib/apk,sharing=locked \
-    apk update && \
-    apk add python3 g++ make && \
+RUN apk add --no-cache g++ make python3 && \
     rm -rf /var/lib/apk/lists/*
 
 # Install sqlite3 dependencies. You can skip this if you don't use sqlite3 in the image,
 # in which case you should also move better-sqlite3 to "devDependencies" in package.json.
-RUN --mount=type=cache,target=/var/cache/apk,sharing=locked \
-    --mount=type=cache,target=/var/lib/apk,sharing=locked \
-    apk update && \
-    apk add sqlite-dev && \
+RUN apk add --no-cache sqlite-dev && \
     rm -rf /var/lib/apk/lists/*
 
 # From here on we use the least-privileged `node` user to run the backend.
