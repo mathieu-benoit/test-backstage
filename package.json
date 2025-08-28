@@ -40,7 +40,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "prismjs": ">=1.30.0",
-    "koa": ">=3.0.1"
+    "koa": ">=3.0.1",
+    "@octokit/plugin-paginate-rest": ">=9.2.2"
   },
   "prettier": "@backstage/cli/config/prettier",
   "lint-staged": {
