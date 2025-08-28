@@ -7394,24 +7394,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/endpoint@npm:^7.0.0":
-  version: 7.0.6
-  resolution: "@octokit/endpoint@npm:7.0.6"
+"@octokit/endpoint@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@octokit/endpoint@npm:11.0.0"
   dependencies:
-    "@octokit/types": "npm:^9.0.0"
-    is-plain-object: "npm:^5.0.0"
-    universal-user-agent: "npm:^6.0.0"
-  checksum: 10c0/fd147a55010b54af7567bf90791359f7096a1c9916a2b7c72f8afd0c53141338b3d78da3a4ab3e3bdfeb26218a1b73735432d8987ccc04996b1019219299f115
-  languageName: node
-  linkType: hard
-
-"@octokit/endpoint@npm:^9.0.6":
-  version: 9.0.6
-  resolution: "@octokit/endpoint@npm:9.0.6"
-  dependencies:
-    "@octokit/types": "npm:^13.1.0"
-    universal-user-agent: "npm:^6.0.0"
-  checksum: 10c0/8e06197b21869aeb498e0315093ca6fbee12bd1bdcfc1667fcd7d79d827d84f2c5a30702ffd28bba7879780e367d14c30df5b20d47fcaed5de5fdc05f5d4e013
+    "@octokit/types": "npm:^14.0.0"
+    universal-user-agent: "npm:^7.0.2"
+  checksum: 10c0/ba929128af5327393fdb3a31f416277ae3036a44566d35955a4eddd484a15b5ddc6abe219a56355f3313c7197d59f4e8bf574a4f0a8680bc1c8725b88433d391
   languageName: node
   linkType: hard
 
@@ -7660,29 +7649,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/request@npm:^6.0.0, @octokit/request@npm:^6.2.3":
-  version: 6.2.8
-  resolution: "@octokit/request@npm:6.2.8"
+"@octokit/request-error@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@octokit/request-error@npm:7.0.0"
   dependencies:
-    "@octokit/endpoint": "npm:^7.0.0"
-    "@octokit/request-error": "npm:^3.0.0"
-    "@octokit/types": "npm:^9.0.0"
-    is-plain-object: "npm:^5.0.0"
-    node-fetch: "npm:^2.6.7"
-    universal-user-agent: "npm:^6.0.0"
-  checksum: 10c0/6b6079ed45bac44c4579b40990bfd1905b03d4bc4e5255f3d5a10cf5182171578ebe19abeab32ebb11a806f1131947f2a06b7a077bd7e77ade7b15fe2882174b
+    "@octokit/types": "npm:^14.0.0"
+  checksum: 10c0/e52bdd832a0187d66b20da5716c374d028f63d824908a9e16cad462754324083839b11cf6956e1d23f6112d3c77f17334ebbd80f49d56840b2b03ed9abef8cb0
   languageName: node
   linkType: hard
 
-"@octokit/request@npm:^8.0.0, @octokit/request@npm:^8.3.1, @octokit/request@npm:^8.4.1":
-  version: 8.4.1
-  resolution: "@octokit/request@npm:8.4.1"
+"@octokit/request@npm:>=8.4.1":
+  version: 10.0.3
+  resolution: "@octokit/request@npm:10.0.3"
   dependencies:
-    "@octokit/endpoint": "npm:^9.0.6"
-    "@octokit/request-error": "npm:^5.1.1"
-    "@octokit/types": "npm:^13.1.0"
-    universal-user-agent: "npm:^6.0.0"
-  checksum: 10c0/1a69dcb7336de708a296db9e9a58040e5b284a87495a63112f80eb0007da3fc96a9fadecb9e875fc63cf179c23a0f81031fbef2a6f610a219e45805ead03fcf3
+    "@octokit/endpoint": "npm:^11.0.0"
+    "@octokit/request-error": "npm:^7.0.0"
+    "@octokit/types": "npm:^14.0.0"
+    fast-content-type-parse: "npm:^3.0.0"
+    universal-user-agent: "npm:^7.0.2"
+  checksum: 10c0/2d9b2134390ef3aa9fe0c5e659fe93dd94fbabc4dcc6da6e16998dc84b5bda200e6b7a4e178f567883d0ba99c0ea5a6d095a417d86d76854569196c39d2f9a6d
   languageName: node
   linkType: hard
 
@@ -7734,7 +7719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:^14.1.0":
+"@octokit/types@npm:^14.0.0, @octokit/types@npm:^14.1.0":
   version: 14.1.0
   resolution: "@octokit/types@npm:14.1.0"
   dependencies:
@@ -18756,6 +18741,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-content-type-parse@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "fast-content-type-parse@npm:3.0.0"
+  checksum: 10c0/06251880c83b7118af3a5e66e8bcee60d44f48b39396fc60acc2b4630bd5f3e77552b999b5c8e943d45a818854360e5e97164c374ec4b562b4df96a2cdf2e188
+  languageName: node
+  linkType: hard
+
 "fast-copy@npm:^3.0.2":
   version: 3.0.2
   resolution: "fast-copy@npm:3.0.2"
@@ -24859,7 +24851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.0, node-fetch@npm:^2.6.7, node-fetch@npm:^2.6.9, node-fetch@npm:^2.7.0":
+"node-fetch@npm:^2.6.0, node-fetch@npm:^2.6.9, node-fetch@npm:^2.7.0":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
   dependencies:
@@ -31239,6 +31231,13 @@ __metadata:
   version: 6.0.1
   resolution: "universal-user-agent@npm:6.0.1"
   checksum: 10c0/5c9c46ffe19a975e11e6443640ed4c9e0ce48fcc7203325757a8414ac49940ebb0f4667f2b1fa561489d1eb22cb2d05a0f7c82ec20c5cba42e58e188fb19b187
+  languageName: node
+  linkType: hard
+
+"universal-user-agent@npm:^7.0.2":
+  version: 7.0.3
+  resolution: "universal-user-agent@npm:7.0.3"
+  checksum: 10c0/6043be466a9bb96c0ce82392842d9fddf4c37e296f7bacc2cb25f47123990eb436c82df824644f9c5070a94dbdb117be17f66d54599ab143648ec57ef93dbcc8
   languageName: node
   linkType: hard
 
