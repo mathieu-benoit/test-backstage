@@ -4,6 +4,11 @@ permissions:
 on:
   pull_request:
     branches: [main]
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
   push:
     branches: [main]
 jobs:
@@ -16,6 +21,10 @@ jobs:
         run: |
           docker image build -t backstage:local .
           docker run -d \
+              -u 65532 \
+              --cap-drop=ALL \
+              --read-only \
+              --tmpfs /tmp \
               -e APP_CONFIG_backend_database_client='better-sqlite3' \
               -e APP_CONFIG_backend_database_connection=':memory:' \
               -e APP_CONFIG_auth_providers_guest_dangerouslyAllowOutsideDevelopment='true' \
