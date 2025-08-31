@@ -46,7 +46,7 @@ RUN mkdir packages/backend/dist/skeleton packages/backend/dist/bundle \
     && tar xzf packages/backend/dist/bundle.tar.gz -C packages/backend/dist/bundle
 
 # Stage 3 - Build the actual backend image and install production dependencies
-FROM alpine:3.22.0
+FROM alpine:3.22.1
 
 # Set Python interpreter for `node-gyp` to use
 ENV PYTHON=/usr/bin/python3
