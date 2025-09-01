@@ -23,11 +23,6 @@ ENV PYTHON=/usr/bin/python3
 RUN apk add --no-cache g++ make python3 && \
     rm -rf /var/lib/apk/lists/*
 
-# Install sqlite3 dependencies. You can skip this if you don't use sqlite3 in the image,
-# in which case you should also move better-sqlite3 to "devDependencies" in package.json.
-RUN apk add --no-cache sqlite-dev && \
-    rm -rf /var/lib/apk/lists/*
-
 USER node
 WORKDIR /app
 
@@ -53,11 +48,6 @@ ENV PYTHON=/usr/bin/python3
 
 # Install isolate-vm dependencies, these are needed by the @backstage/plugin-scaffolder-backend.
 RUN apk add --no-cache g++ make nodejs python3 yarn && \
-    rm -rf /var/lib/apk/lists/*
-
-# Install sqlite3 dependencies. You can skip this if you don't use sqlite3 in the image,
-# in which case you should also move better-sqlite3 to "devDependencies" in package.json.
-RUN apk add --no-cache sqlite-dev && \
     rm -rf /var/lib/apk/lists/*
 
 # From here on we use the least-privileged `node` user to run the backend.
