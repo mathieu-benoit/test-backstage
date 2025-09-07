@@ -34,7 +34,7 @@ jobs:
           docker image build -f Dockerfile.frontend -t frontend:local .
           docker run -d \
               -e APP_CONFIG_auth_providers_guest_dangerouslyAllowOutsideDevelopment='true' \
-              -p 3000:3000 \
+              -p 80:80 \
               frontend:local
-          curl localhost:3000
+          curl localhost:80
           
