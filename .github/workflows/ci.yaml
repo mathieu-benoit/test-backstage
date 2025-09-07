@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v5
       - name: docker build and run
         run: |
-          docker image build -t backstage:local .
+          docker image build -t backend:local .
           docker run -d \
               -u 65532 \
               --cap-drop=ALL \
@@ -29,7 +29,12 @@ jobs:
               -e APP_CONFIG_backend_database_connection=':memory:' \
               -e APP_CONFIG_auth_providers_guest_dangerouslyAllowOutsideDevelopment='true' \
               -p 7007:7007 \
-              backstage:local
+              backend:local
           sleep 10
-          curl localhost:7007
+          docker image build -f Dockerfile.frontend -t frontend:local .
+          docker run -d \
+              -e APP_CONFIG_auth_providers_guest_dangerouslyAllowOutsideDevelopment='true' \
+              -p 3000:3000 \
+              frontend:local
+          curl localhost:3000
           
