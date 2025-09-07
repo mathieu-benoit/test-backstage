@@ -1,13 +1,18 @@
-FROM node:20-buster AS build
+FROM node:22-alpine AS build
 RUN mkdir /app
 COPY . /app
 WORKDIR /app
-RUN yarn install
+RUN yarn install --immutable
 RUN yarn workspace app build
 
-FROM nginx:mainline
-RUN apt-get update && apt-get -y install jq && rm -rf /var/lib/apt/lists/*
+FROM nginxinc/nginx-unprivileged:alpine-slim
+ARG UID=101
+USER root
+RUN apk update && apk add jq && rm -rf /var/lib/apk/lists/*
 COPY --from=build /app/packages/app/dist /usr/share/nginx/html
-COPY docker/default.conf.template /etc/nginx/templates/default.conf.template
-COPY docker/inject-config.sh /docker-entrypoint.d/40-inject-config.sh
-ENV PORT=80
+RUN chown -R $UID:0 /usr/share/nginx/html/static/
+RUN chmod -R g+w /usr/share/nginx/html/static/
+COPY container-config/default.conf.template /etc/nginx/templates/default.conf.template
+COPY container-config/inject-config.sh /docker-entrypoint.d/40-inject-config.sh
+USER $UID
+ENV PORT=8080
